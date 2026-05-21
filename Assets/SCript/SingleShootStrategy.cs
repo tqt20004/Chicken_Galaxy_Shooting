@@ -12,10 +12,5 @@ public class SingleShootStrategy : IShootStrategy
         data.speed = bulletSpeed;
         data.position = spawnPosition;
         WeaponEvent.EmitSpawnBullet(data);
-        //bulletSpeed = 50f; // override
-        //Rigidbody rb = bullet.GetComponent<Rigidbody>();
-        //if (rb != null) rb.velocity = Vector3.forward * bulletSpeed;
-
-        //Object.Destroy(bullet, 2f);
     }
 }
