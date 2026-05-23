@@ -10,9 +10,19 @@ public class KeyboardMoveStrategy :  IMoveStrategy
         Debug.Log("KeyBoard");
     }
 
-    public float GetTargetX()
+    public Vector3 GetTargetDirection()
     {
-        float keyboardInput = Input.GetAxisRaw("Horizontal");
-        return keyboardInput;
+        float inputX = Input.GetAxisRaw("Horizontal"); // A/D
+        float inputZ = Input.GetAxisRaw("Vertical");   // W/S
+
+        return new Vector3(inputX, 0f, inputZ).normalized;
+    }
+}
+public class FallDownStrategy : IMoveStrategy
+{
+    public Vector3 GetTargetDirection()
+    {
+        Vector3 dir = Vector3.back;
+        return dir;
     }
 }

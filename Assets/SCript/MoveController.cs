@@ -7,18 +7,21 @@ using static UnityEngine.GraphicsBuffer;
 public class MoveController : MonoBehaviour
 {
     public float moveSpeed = 15f;
-    public float minX = -5f;
-    public float maxX = 5f;
+    public float minX = -15f;
+    public float maxX = 15f;
+    public float minZ = -15f;
+    public float maxZ = 15f;
     float targetX;
 
     public Transform playerTransform;
 
-    private IMoveStrategy currentMoveStrategy;
+    private IMoveStrategy currentMoveStrategy = new KeyboardMoveStrategy();
 
 
     void Start()
     {
-        ChangeMoveStrategy(new KeyboardMoveStrategy());  
+        //ChangeMoveStrategy(new KeyboardMoveStrategy());
+        playerTransform = this.transform;
     }
 
     public void ChangeMoveStrategy(IMoveStrategy newStrategy)
@@ -30,12 +33,20 @@ public class MoveController : MonoBehaviour
     {
         if (currentMoveStrategy == null) return;
 
-        targetX = currentMoveStrategy.GetTargetX();
+        // Lấy hướng đi 3D (X, 0, Z)
+        Vector3 moveDirection = currentMoveStrategy.GetTargetDirection();
 
-        float newX = playerTransform.position.x + (targetX * moveSpeed * Time.deltaTime);
+        // Tính vị trí mới trên mặt đất
+        float newX = playerTransform.position.x + (moveDirection.x * moveSpeed * Time.deltaTime);
+        float newZ = playerTransform.position.z + (moveDirection.z * moveSpeed * Time.deltaTime);
 
+        // Giới hạn lại trong boong-ke map
         float clampedX = Mathf.Clamp(newX, minX, maxX);
+        float clampedZ = Mathf.Clamp(newZ, minZ, maxZ);
 
-        playerTransform.position = new Vector3(clampedX, playerTransform.position.y, playerTransform.position.z);
+        playerTransform.position = new Vector3(clampedX, playerTransform.position.y, clampedZ);
+
+        //Debug.Log(currentMoveStrategy);
     }
 }
+    

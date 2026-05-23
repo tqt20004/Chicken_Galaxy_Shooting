@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IMoveStrategy 
+public interface IDamageable 
 {
-    Vector3 GetTargetDirection();
+    public void TakeDamage(int amount);
 }

@@ -16,13 +16,13 @@ public class ShootController : MonoBehaviour
 
     private void OnEnable()
     {
-        // Đăng ký nghe Event X. Không cần kéo thả, tự động bắt link qua hệ thống Static Event
         WeaponConfigurator.OnChangedBulletPrefab += ChangeBullet;
+        WeaponConfigurator.OnChangedShooting += ChangeShootStrategy;
     }
 
     private void OnDisable()
     {
-        // Hủy đăng ký khi bị destroy để tránh tràn bộ nhớ (Memory Leak)
+        WeaponConfigurator.OnChangedBulletPrefab -= ChangeBullet;
         WeaponConfigurator.OnChangedShooting -= ChangeShootStrategy;
     }
     void Start()

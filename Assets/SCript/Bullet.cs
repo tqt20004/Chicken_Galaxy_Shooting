@@ -18,7 +18,6 @@ public class Bullet : MonoBehaviour
 
     public void Init(float speed)
     {
-        Debug.Log(speed+"zzzzzzzz");
        this.speed = speed;
         Fly();
     }
@@ -32,5 +31,15 @@ public class Bullet : MonoBehaviour
         {
             Debug.LogError("RIGIDBODY NULL!");
         }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        //if (collision.Hea)
+        Destroy(this.gameObject);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(this.gameObject);
+
     }
 }

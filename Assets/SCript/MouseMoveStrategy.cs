@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MouseMoveStrategy : IMoveStrategy
 {
-    public float GetTargetX()
+    public Vector3 GetTargetDirection()
     {
         throw new System.NotImplementedException();
     }
+
+
 }
