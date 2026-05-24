@@ -13,4 +13,13 @@ MonoBehaviour:
   m_Name: NewWave 2
   m_EditorClassIdentifier: 
   waveName: 2
-  waveList: []
+  waveList:
+  - entity: {fileID: 11400000, guid: 0ae8010c9388de2409d53fef2523a81b, type: 2}
+    spawnTime: 1
+    spawnPointIndex: 0
+  - entity: {fileID: 11400000, guid: 8b81fac2fcc736b459c96dfe58c6ef46, type: 2}
+    spawnTime: 3
+    spawnPointIndex: 1
+  - entity: {fileID: 11400000, guid: 0ae8010c9388de2409d53fef2523a81b, type: 2}
+    spawnTime: 7
+    spawnPointIndex: 0

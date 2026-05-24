@@ -18,6 +18,7 @@ public class Bullet : MonoBehaviour
 
     public void Init(float speed)
     {
+
        this.speed = speed;
         Fly();
     }

@@ -8,8 +8,8 @@ public class HealthComponent : MonoBehaviour , IDamageable
     public int health;
     public int maxHealth;
 
-    public static Action<float> OnHealthChanged; 
-    public static Action OnDeath; 
+    public  Action<float> OnHealthChanged; 
+    public  Action OnDeath; 
     // Start is called before the first frame update
     void Start()
     {

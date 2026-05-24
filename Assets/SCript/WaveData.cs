@@ -7,10 +7,12 @@ public class WaveData : ScriptableObject
 {
     public string waveName;
     public List<WaveElement> waveList;
+
 }
 [System.Serializable] 
 public struct WaveElement 
 {
     public EntityData entity;
-    public float spawnTime;   
+    public float spawnTime;
+    public int spawnPointIndex;
 }

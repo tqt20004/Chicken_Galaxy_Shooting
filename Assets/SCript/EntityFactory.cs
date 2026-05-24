@@ -22,9 +22,9 @@ public class EntityFactory : MonoBehaviour
         
     }
 
-    public void Spawn(EntityData entityData)
+    public void Spawn(EntityData entityData, Vector3 spawnPoint)
     {
-        Vector3 temp = new Vector3(-2,1,9);
+        Vector3 temp = spawnPoint;
         IMoveStrategy moveStrategy = ClassifyMoving(entityData);
         GameObject pattern =Instantiate(patternPrefab,temp,Quaternion.identity);
         HealthComponent healthComponent =pattern.GetComponent<HealthComponent>()?? pattern.AddComponent<HealthComponent>();
