@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System.Threading.Tasks; 
 
 public class UIManager : MonoBehaviour
 {
@@ -23,9 +24,13 @@ public class UIManager : MonoBehaviour
     }
     public void ClassifyState(States state)
     {
-        if(state == States.Intro) { ChangeMainAnnounce("Ready For The Game!!!"); } 
-        if(state == States.Playing) { ChangeMainAnnounce(""); }
-        if(state == States.Outro) { }
+        if(state == States.Intro) { ChangeMainAnnounce("Ready For The Game!!!"); ClearAnnounce(4000); } 
+        if(state == States.Playing) { ChangeMainAnnounce("Fighting!!!"); ClearAnnounce(4000); }
+        if(state == States.Outro) { ChangeMainAnnounce("End!!!"); ClearAnnounce(3000); }
     }
-    
+    public async void ClearAnnounce(int timeDelay)
+    {
+        await Task.Delay(timeDelay);
+        ChangeMainAnnounce("");
+    }
 }

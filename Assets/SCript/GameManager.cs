@@ -25,6 +25,21 @@ public class GameManager : MonoBehaviour
     {
         StartIntro();
     }
+    private void OnEnable()
+    {
+        waveManager.OnEndStage += StartOutro;
+    }
+
+    private void StartOutro()
+    {
+        ChangeStates(States.Outro);
+        OnChangedGameState(States.Outro);
+    }
+
+    private void OnDisable()
+    {
+        waveManager.OnEndStage
+    }
 
     // Update is called once per frame
     void Update()

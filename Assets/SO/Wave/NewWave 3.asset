@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveName: 3
   waveList:
-  - entity: {fileID: 11400000, guid: 0ae8010c9388de2409d53fef2523a81b, type: 2}
-    spawnTime: 0
-    spawnPointIndex: 0
-  - entity: {fileID: 11400000, guid: 0ae8010c9388de2409d53fef2523a81b, type: 2}
-    spawnTime: 3
+  - entity: {fileID: 11400000, guid: fe63a20cb6e84364d91e53ce07f0cd69, type: 2}
+    spawnTime: 2
     spawnPointIndex: 0
   - entity: {fileID: 11400000, guid: 8b81fac2fcc736b459c96dfe58c6ef46, type: 2}
-    spawnTime: 7
-    spawnPointIndex: 1
-  - entity: {fileID: 11400000, guid: 0ae8010c9388de2409d53fef2523a81b, type: 2}
-    spawnTime: 12
+    spawnTime: 3
     spawnPointIndex: 1

@@ -14,19 +14,19 @@ public class EntityFactory : MonoBehaviour
     private void OnDisable()
     {
         WaveManager.OnSpawnEntity -= Spawn;
-
     }
     // Start is called before the first frame update
     void Start()
     {
         
     }
-
     public void Spawn(EntityData entityData, Vector3 spawnPoint)
     {
+        if(entityData.prefab != null) { patternPrefab = entityData.prefab; }
         Vector3 temp = spawnPoint;
         IMoveStrategy moveStrategy = ClassifyMoving(entityData);
         GameObject pattern =Instantiate(patternPrefab,temp,Quaternion.identity);
+        Rigidbody rb = pattern.GetComponent<Rigidbody>() ?? pattern.AddComponent<Rigidbody>();
         HealthComponent healthComponent =pattern.GetComponent<HealthComponent>()?? pattern.AddComponent<HealthComponent>();
         healthComponent.maxHealth= healthComponent.health = entityData.maxHealth;
         HandleTouchingComponent handleTouchingComponent = pattern.GetComponent<HandleTouchingComponent>() ?? pattern.AddComponent<HandleTouchingComponent>();
