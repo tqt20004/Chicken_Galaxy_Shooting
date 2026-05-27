@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        waveManager.OnEndStage
+        waveManager.OnEndStage -= StartOutro;
     }
 
     // Update is called once per frame

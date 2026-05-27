@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 379924808579950471, guid: 72e4f395b8e9da44d96473f00d7c8b5c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0279cf1ae694123428ee47fc25e780d7, type: 2}
     - target: {fileID: 919132149155446097, guid: 72e4f395b8e9da44d96473f00d7c8b5c, type: 3}
       propertyPath: m_Name
       value: meteor_half_Designed
