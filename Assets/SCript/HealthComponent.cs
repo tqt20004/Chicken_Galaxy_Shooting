@@ -7,9 +7,9 @@ public class HealthComponent : MonoBehaviour , IDamageable
 {
     public int health;
     public int maxHealth;
-
+    //public Stat healthStat;
     public  Action<float> OnHealthChanged; 
-    public  Action OnDeath; 
+    public  static Action OnDeath; 
     // Start is called before the first frame update
     void Start()
     {

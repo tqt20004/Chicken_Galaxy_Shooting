@@ -16,7 +16,7 @@ public class EntityData : ScriptableObject
     public int maxHealth = 100;
     public float moveSpeed = 5f;
     public int touchDamage = 10;
-    public Category category;
+    public Category category;  
     public LayerMask layerMask;
 
     [Header("Prefab")]

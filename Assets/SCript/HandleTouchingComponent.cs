@@ -13,8 +13,13 @@ public class HandleTouchingComponent : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("touch1");
-
+        //PlayerEntity player = other.GetComponent<PlayerEntity>();
+        //Debug.Log("touch1");
+        //if (player != null)
+        //{
+        //    player.playerStat.UpdateHealth(damage);
+        //    return;
+        //}
         HealthComponent health = other.gameObject.GetComponent<HealthComponent>();
 
         if (health != null)

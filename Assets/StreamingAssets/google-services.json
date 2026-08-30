@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "284570341423",
+    "firebase_url": "https://testdsk-8f0bf-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "testdsk-8f0bf",
+    "storage_bucket": "testdsk-8f0bf.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284570341423:android:87125bdaec25cc8b1df6da",
+        "android_client_info": {
+          "package_name": "com.Thang.TestSDK"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6KzaUnu723b7tLlsuxOQ3Ol2XEVWCKHo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

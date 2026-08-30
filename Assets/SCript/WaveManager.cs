@@ -26,7 +26,7 @@ public class WaveManager : MonoBehaviour
     // Timer phụ để đếm ngược thời gian chờ ở WaveIntro
     private float introTimer;
 
-    public static Action<EntityData, Vector3> OnSpawnEntity;
+    //public static Action<EntityData, Vector3> OnSpawnEntity;
     public Action<WaveStates> OnChangedWaveState;
     public Action OnEndStage; // Bắn lên cho GameManager hứng khi xong hết mảng Wave
 
@@ -154,9 +154,10 @@ public class WaveManager : MonoBehaviour
 
     private void SpawnEntity(WaveElement waveElement)
     {
+
         int index = Mathf.Clamp(waveElement.spawnPointIndex, 0, spawnPointArray.Length - 1);
         Vector3 spawnPos = spawnPointArray[index].position;
-
-        OnSpawnEntity?.Invoke(waveElement.entity, spawnPos);
+        
+        GameEvents.RequestSpawnEnemy?.Invoke(waveElement.entity, spawnPos);
     }
 }

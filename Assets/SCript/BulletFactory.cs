@@ -24,7 +24,11 @@ public class BulletFactory : MonoBehaviour
         Bullet bulletScript;
         bool x = bulletObj.TryGetComponent<Bullet>(out bulletScript);
         if (x) bulletScript.Init(info.speed);
-        
+        // 2. NẠP DAMAGE RIÊNG CỦA SÚNG VÀO HandleTouchingComponent!
+        //if (bulletObj.TryGetComponent<HandleTouchingComponent>(out var touchComp))
+        //{
+        //    touchComp.ChangeDamage((int)info.damage);
+        //}
         //if (bulletObj.TryGetComponent<Bullet>(out var bulletLogic))
         //{
         //    // Inject data vào viên đạn để nó tự bay và tự gây damage

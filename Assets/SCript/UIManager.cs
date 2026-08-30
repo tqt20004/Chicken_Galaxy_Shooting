@@ -9,9 +9,17 @@ public class UIManager : MonoBehaviour
     public WaveManager waveManager;
     public GameManager gameManager;
     public TextMeshProUGUI mainAnnounce;
+    public TextMeshProUGUI scoreText;
     private void OnEnable()
     {
         gameManager.OnChangedGameState += ClassifyState;
+        gameManager.OnChangedScore += ChangeScoreUI;
+    }
+    private void OnDisable()
+    {
+        gameManager.OnChangedGameState -= ClassifyState;
+        gameManager.OnChangedScore -= ChangeScoreUI;
+
     }
     // Start is called before the first frame update
     void Start()
@@ -32,5 +40,9 @@ public class UIManager : MonoBehaviour
     {
         await Task.Delay(timeDelay);
         ChangeMainAnnounce("");
+    }
+    public void ChangeScoreUI(int score)
+    {
+        //scoreText.text = score.ToString();
     }
 }
