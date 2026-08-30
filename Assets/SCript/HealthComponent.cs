@@ -26,6 +26,15 @@ public class HealthComponent : MonoBehaviour , IDamageable
         }
         OnHealthChanged?.Invoke(health);
     }
+    public void Heal(int amount)
+    {
+        health += amount;
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+        OnHealthChanged?.Invoke(health); //Afterwards add Invoke to know heal or damage
+    }
 
     private void Die()
     {

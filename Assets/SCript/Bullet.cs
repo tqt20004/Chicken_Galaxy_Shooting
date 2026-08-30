@@ -26,7 +26,7 @@ public class Bullet : MonoBehaviour
     {
         if (rb != null)
         {
-            rb.velocity = Vector3.forward * speed;
+            rb.velocity = transform.forward * speed;
         }
         else
         {
@@ -35,11 +35,17 @@ public class Bullet : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
+
+     //delete this
+        if (collision.gameObject.GetComponent<Bullet>() != null) return;
+        Debug.Log("2");
         //if (collision.Hea)
         Destroy(this.gameObject);
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.GetComponent<PlayerEntity>() != null) return;
+        if (other.GetComponent<Bullet>() != null) return;
         Destroy(this.gameObject);
 
     }

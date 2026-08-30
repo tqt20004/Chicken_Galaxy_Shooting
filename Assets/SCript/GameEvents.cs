@@ -17,4 +17,8 @@ public static class GameEvents
 
     public static Action<EntityData, Vector3> RequestSpawnEnemy;
 
+    public static Action<int> RequestDamagePlayer;
+    public static Action<int> RequestHealPlayer;
+
+    public static Action<int> OnCoinCollected;
 }

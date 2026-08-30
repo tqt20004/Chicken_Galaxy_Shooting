@@ -11,6 +11,7 @@ public struct BulletSpawnData
     public Vector3 position;
     public float speed;
     public float damage;
+    public Quaternion rotation;
 }
 
 public static class WeaponEvent

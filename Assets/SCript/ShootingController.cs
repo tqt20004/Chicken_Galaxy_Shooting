@@ -27,8 +27,8 @@ public class ShootController : MonoBehaviour
     }
     void Start()
     {
-        // SET MẶC ĐỊNH: Vào trận là bắn thẳng, class thuần nên xài "new" cực sạch
-        ChangeShootStrategy(new SingleShootStrategy());
+        //ChangeShootStrategy(new SingleShootStrategy());
+        ChangeShootStrategy(new TripleSpreadShootStrategy());
     }
     
 

@@ -12,6 +12,8 @@ public class PlayerEntity : MonoBehaviour
     private void OnEnable()
     {
         WeaponConfigurator.OnChangedBaseStat += ReceiveChangeStat;
+        GameEvents.RequestHealPlayer += HandleHeal;
+        GameEvents.RequestDamagePlayer += HandleTakeDamage;
     }
     private void OnDisable()
     {
@@ -24,11 +26,7 @@ public class PlayerEntity : MonoBehaviour
         healthComponent = GetComponent<HealthComponent>();
     }
     private void Start() {  }
-    //public void SetAuto()
-    //{
-    //    WeaponConfigurator.Instance.A_Event();
-    //    healthComponent.maxHealth = healthComponent.health = playerStat.maxHealth;
-    //}
+
     public void ReceiveChangeStat(BaseStat stat)
     {
         playerStat = stat;
@@ -38,13 +36,17 @@ public class PlayerEntity : MonoBehaviour
         ReceiveChangeStat(baseStat);
         healthComponent.maxHealth = healthComponent.health = playerStat.maxHealth;
     }
+    public void HandleHeal(int amount)
+    {
+        if (healthComponent == null) throw new System.Exception("HealthComponent is null");
+        healthComponent.Heal(amount);
+    }
+
+    public void HandleTakeDamage(int damage)
+    {
+        if(healthComponent == null) throw new System.Exception("HealthComponent is null");
+        healthComponent.TakeDamage(damage);
+    }
 
 
-
-    //public void TakeDamage(int dmg)
-    //{
-    //    playerStat.UpdateHealth(-dmg);
-    //    var x = playerStat.GetCurrentHealth();
-    //    if (x <= 0) IsDead = true;
-    //}
 }

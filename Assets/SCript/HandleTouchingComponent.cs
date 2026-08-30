@@ -13,20 +13,26 @@ public class HandleTouchingComponent : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        //PlayerEntity player = other.GetComponent<PlayerEntity>();
-        //Debug.Log("touch1");
-        //if (player != null)
-        //{
-        //    player.playerStat.UpdateHealth(damage);
-        //    return;
-        //}
+        
         HealthComponent health = other.gameObject.GetComponent<HealthComponent>();
 
-        if (health != null)
+        // Case 1: target on PLAYER -> Call GAMEEVENTS!
+        if (other.CompareTag("Player") || other.GetComponent<PlayerEntity>() != null)
         {
-            Debug.Log("get2" + other.name);
-            health.TakeDamage(damage);
+            GameEvents.RequestDamagePlayer?.Invoke(damage);
+            return;
         }
+        //CAse 2: Not Player -> Call IDamageable and minus health
+        if (other.TryGetComponent<IDamageable>(out var target))
+        {
+            target.TakeDamage(damage);
+        }
+
+        //if (health != null)
+        //{
+        //    Debug.Log("get2" + other.name);
+        //    health.TakeDamage(damage);
+        //}
     }
     public void ChangeDamage(int amount)
     {

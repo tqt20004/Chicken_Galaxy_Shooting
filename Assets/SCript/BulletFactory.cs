@@ -17,9 +17,9 @@ public class BulletFactory : MonoBehaviour
 
     private void HandleSpawnBullet(BulletSpawnData info)
     {
-        Debug.Log("get" + info.speed);
+        //Debug.Log("get" + info.speed);
         // Ở đây có thể kết hợp Object Pooling để lấy đạn ra thay vì Instantiate
-        GameObject bulletObj = Instantiate(info.prefab, info.position, Quaternion.identity);
+        GameObject bulletObj = Instantiate(info.prefab, info.position, info.rotation);
 
         Bullet bulletScript;
         bool x = bulletObj.TryGetComponent<Bullet>(out bulletScript);

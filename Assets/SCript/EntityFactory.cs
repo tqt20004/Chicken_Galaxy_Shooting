@@ -41,6 +41,9 @@ public class EntityFactory : MonoBehaviour
         HandleTouchingComponent handleTouchingComponent = pattern.GetComponent<HandleTouchingComponent>() ?? pattern.AddComponent<HandleTouchingComponent>();
         handleTouchingComponent.ChangeDamage(entityData.touchDamage);
         MoveController moveController = pattern.GetComponent<MoveController>() ?? pattern.AddComponent<MoveController>();
+
+        //test new feature: zigzag move strategy
+        moveStrategy = new ZigZagMoveStrategy();
         moveController.ChangeMoveStrategy(moveStrategy);
         moveController.moveSpeed = entityData.moveSpeed;
         pattern.layer = LayerMaskExtensions.ToLayerIndex(entityData.layerMask);
