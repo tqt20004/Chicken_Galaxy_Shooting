@@ -42,6 +42,10 @@ public class EntityFactory : MonoBehaviour
         handleTouchingComponent.ChangeDamage(entityData.touchDamage);
         MoveController moveController = pattern.GetComponent<MoveController>() ?? pattern.AddComponent<MoveController>();
 
+
+        healthComponent.OnDeath += (pos) => GameEvents.OnEnemyDie?.Invoke(pos);
+
+
         //test new feature: zigzag move strategy
         moveStrategy = new ZigZagMoveStrategy();
         moveController.ChangeMoveStrategy(moveStrategy);

@@ -1,44 +1,49 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CollectableItem : MonoBehaviour
 {
     [Header("Runtime Data & Effect")]
-    public ItemData itemData;          // Cục ItemData được tiêm vào
-    private IItemEffect itemEffect;     // Chiến lược tác dụng (Gold / Heal / WeaponBuff)
+    public ItemData itemData;
+    private IItemEffect itemEffect;
 
     [Header("Movement & Magnet Settings")]
-    public float fallSpeed = 2.5f;       // Tốc độ trôi từ từ xuống dưới
-    public float magnetDistance = 5f;    // Khoảng cách bắt đầu hút nam châm
-    public float flyToPlayerSpeed = 15f; // Tốc độ hút vèo vào tàu
-    public float lifeTime = 10f;         // Tự hủy nếu người chơi không nhặt
+    public float fallSpeed = 2.5f;
+    public float magnetDistance = 5f;
+    public float flyToPlayerSpeed = 18f; // Tăng nhẹ tốc độ hút cho mượt
+    public float lifeTime = 10f;
 
     private Transform playerTransform;
+    private PlayerEntity cachedPlayer;
 
-    // 💉 HÀM TIÊM DATA & EFFECT KHI FACTORY SINH RA:
     public void Init(ItemData data, IItemEffect effect)
     {
         this.itemData = data;
         this.itemEffect = effect;
 
-        // Tìm tàu của Player trong scene để làm mục tiêu hút
-        var player = FindObjectOfType<PlayerEntity>();
-        if (player != null) playerTransform = player.transform;
+        cachedPlayer = FindObjectOfType<PlayerEntity>();
+        if (cachedPlayer != null) playerTransform = cachedPlayer.transform;
 
-        // Tự hủy sau 10 giây nếu rơi ra ngoài màn hình
         Destroy(gameObject, lifeTime);
     }
 
     private void Update()
     {
-        // 1. Đồng tiền / Hộp quà tự xoay vòng tròn cho đẹp mắt
+        // 1. Tự xoay vòng tròn
         transform.Rotate(Vector3.up * 180f * Time.deltaTime);
 
-        // 2. Cơ chế Nam Châm: Nếu Player ở gần -> Hút vèo về phía tàu
+        // 2. Nam châm hút về Player
         if (playerTransform != null)
         {
             float distance = Vector3.Distance(transform.position, playerTransform.position);
+
+            // 👉 KHI ĐÃ HÚT VÀO SÁT NGƯỜI (< 0.8m) -> ĂN VÀ TỰ HỦY LUÔN!
+            if (distance <= 0.8f)
+            {
+                Collect(cachedPlayer);
+                return;
+            }
+
+            // Nếu trong tầm hút nam châm -> Bay vèo về Player
             if (distance <= magnetDistance)
             {
                 transform.position = Vector3.MoveTowards(transform.position, playerTransform.position, flyToPlayerSpeed * Time.deltaTime);
@@ -46,23 +51,28 @@ public class CollectableItem : MonoBehaviour
             }
         }
 
-        // 3. Nếu chưa vào vùng nam châm -> Trôi từ từ từ trên xuống dưới (Z-)
+        // 3. Nếu ở xa -> Trôi từ từ xuống dưới (Z-)
         transform.position += Vector3.back * fallSpeed * Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Khi chạm vào Player
-        if (other.TryGetComponent<PlayerEntity>(out var player))
+        // 👉 TÌM PLAYERENTITY Ở CẢ OBJECT CHA LẪN CON
+        var player = other.GetComponentInParent<PlayerEntity>();
+        if (player != null)
         {
-            // 💥 KÍCH HOẠT HIỆU ỨNG ĐÃ ĐƯỢC TIÊM (Ăn Vàng / Hồi Máu / Đổi Súng)
-            if (itemEffect != null && itemData != null)
-            {
-                itemEffect.ApplyEffect(player, itemData.effectValue);
-            }
-
-            // Nhặt xong tự hủy
-            Destroy(gameObject);
+            Collect(player);
         }
+    }
+
+    // Hàm thu thập chung
+    private void Collect(PlayerEntity player)
+    {
+        if (itemEffect != null && itemData != null)
+        {
+            itemEffect.ApplyEffect(player, itemData.effectValue);
+        }
+
+        Destroy(gameObject);
     }
 }

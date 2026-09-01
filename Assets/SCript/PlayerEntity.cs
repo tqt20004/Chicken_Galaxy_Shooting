@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PlayerEntity : MonoBehaviour
 {
@@ -14,10 +15,27 @@ public class PlayerEntity : MonoBehaviour
         WeaponConfigurator.OnChangedBaseStat += ReceiveChangeStat;
         GameEvents.RequestHealPlayer += HandleHeal;
         GameEvents.RequestDamagePlayer += HandleTakeDamage;
+        if (healthComponent != null)
+        {
+            healthComponent.OnDeath += HandlePlayerDeath;
+            //healthComponent.OnHealthChanged += HandleHealthChanged;
+        }
     }
+
+    private void HandlePlayerDeath(Vector3 vector)
+    {
+        GameEvents.OnPlayerDie?.Invoke();
+    }
+
     private void OnDisable()
     {
         WeaponConfigurator.OnChangedBaseStat -= ReceiveChangeStat;
+        GameEvents.RequestDamagePlayer -= HandleTakeDamage;
+        GameEvents.RequestHealPlayer -= HandleHeal;
+        if (healthComponent != null)
+        {
+            healthComponent.OnDeath -= HandlePlayerDeath;
+        }
     }
     private void Awake()
     {

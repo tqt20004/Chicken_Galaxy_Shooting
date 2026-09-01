@@ -9,7 +9,7 @@ public class HealthComponent : MonoBehaviour , IDamageable
     public int maxHealth;
     //public Stat healthStat;
     public  Action<float> OnHealthChanged; 
-    public  static Action OnDeath; 
+    public   Action<Vector3> OnDeath;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,9 +36,14 @@ public class HealthComponent : MonoBehaviour , IDamageable
         OnHealthChanged?.Invoke(health); //Afterwards add Invoke to know heal or damage
     }
 
-    private void Die()
+    public void Die()
     {
-        OnDeath?.Invoke();
+        var currentPos = GetCurrentPos();
+        OnDeath?.Invoke(currentPos);
         Destroy(gameObject);
+    }
+    Vector3 GetCurrentPos()
+    {
+        return this.transform.position;
     }
 }

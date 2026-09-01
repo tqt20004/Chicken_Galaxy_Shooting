@@ -1,0 +1,110 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5357813680566205565
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.8081274
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.991624
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 13.146875
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      propertyPath: m_Name
+      value: Coin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2366603858616424577}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6664414610461717126}
+  m_SourcePrefab: {fileID: 100100000, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+--- !u!1 &5087852576551813420 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
+  m_PrefabInstance: {fileID: 5357813680566205565}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2366603858616424577
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087852576551813420}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.003916524
+  m_Height: 0.007833049
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.00000030964614, z: -0.00000031054017}
+--- !u!114 &6664414610461717126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5087852576551813420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d768ea7a6540ee4b92acb72cc5b01e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: abfee0398f141834aac09c1fc6dc2ffb, type: 2}
+  fallSpeed: 2.5
+  magnetDistance: 5
+  flyToPlayerSpeed: 15
+  lifeTime: 10

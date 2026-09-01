@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &749079712167815553
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.174178
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.2678385
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.213823
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      propertyPath: m_Name
+      value: Health1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2232853341857699111}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8619408581485188243}
+  m_SourcePrefab: {fileID: 100100000, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+--- !u!1 &478557859370226896 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c903d3c0fa6bbe742ba7096c3f3241cf, type: 3}
+  m_PrefabInstance: {fileID: 749079712167815553}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &2232853341857699111
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478557859370226896}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.26724932, y: 0.3614485, z: 0.18854436}
+  m_Center: {x: 0, y: 0.17592998, z: 0}
+--- !u!114 &8619408581485188243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478557859370226896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d768ea7a6540ee4b92acb72cc5b01e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemData: {fileID: 11400000, guid: 216b02ce01986384c8446bcb5bd5a272, type: 2}
+  fallSpeed: 5.5
+  magnetDistance: 8
+  flyToPlayerSpeed: 10
+  lifeTime: 10

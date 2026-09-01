@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,8 +46,9 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         waveManager.OnEndStage += StartOutro;
-        HealthComponent.OnDeath += ReceiveDeath;
+        GameEvents.OnEnemyDie += ReceiveDeath;
         GameEvents.RequestChangeGameStates += ChangeStates;
+        GameEvents.OnCoinCollected += IncreaseCoin;
     }
 
     private void StartOutro()
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         waveManager.OnEndStage -= StartOutro;
-        HealthComponent.OnDeath -= ReceiveDeath;
+        GameEvents.OnEnemyDie -= ReceiveDeath;
         GameEvents.RequestChangeGameStates -= ChangeStates;
 
     }
@@ -142,11 +143,16 @@ public class GameManager : MonoBehaviour
         Debug.Log("current State:" + curState);
     }
     ///bonus
-    void ReceiveDeath()
+    void ReceiveDeath(Vector3 pos)
     {
         //if(entityData.category == Category.Obstacle) score += 10;
         score += 10;
         OnChangedScore?.Invoke(score);
+    }
+    public void IncreaseCoin(int amount)
+    {
+        this.gold += amount;
+        Debug.Log($"<color=yellow><size=14><b>💰 ĐÃ NHẬN COIN: {gold}</b></size></color>");
     }
 }
 

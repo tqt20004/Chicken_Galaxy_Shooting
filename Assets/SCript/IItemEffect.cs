@@ -32,12 +32,19 @@ public class HealItemEffect : IItemEffect
 // 4. Tác dụng: Buff Súng 3 Tia
 public class WeaponBuffItemEffect : IItemEffect
 {
+    private string strategyKey;
+    public WeaponBuffItemEffect(string strategyKey)
+    {
+        this.strategyKey = strategyKey;
+    }
     public void ApplyEffect(PlayerEntity player, float value)
     {
         if (player.TryGetComponent<ShootController>(out var shootCtrl))
         {
-            shootCtrl.ChangeShootStrategy(new TripleSpreadShootStrategy());
-            Debug.Log("<color=cyan>Kích hoạt BUFF: Súng 3 Tia!</color>");
+            // Lấy chiến lược bắn từ ShootStrategyRegister theo đúng key!
+            IShootStrategy newStrategy = ShootStrategyRegister.GetStrategy(strategyKey);
+            shootCtrl.ChangeShootStrategy(newStrategy);
+            Debug.Log($"<color=cyan>Kích hoạt BUFF: Súng {strategyKey}!</color>");
         }
     }
 }
