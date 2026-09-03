@@ -8,6 +8,7 @@ using UnityEngine;
 public struct BulletSpawnData
 {
     public GameObject prefab;
+    public int id;
     public Vector3 position;
     public float speed;
     public float damage;

@@ -15,3 +15,4 @@ MonoBehaviour:
   inventorySpaceShip:
   - {fileID: 11400000, guid: 27ba02a2e44668b4793f298016e60934, type: 2}
   - {fileID: 11400000, guid: dbbd87d06ef25b448ac0bbecf73f6746, type: 2}
+  - {fileID: 11400000, guid: a55a43bb3996ee0479fbd6110e6c3494, type: 2}

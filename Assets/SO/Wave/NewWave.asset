@@ -19,4 +19,7 @@ MonoBehaviour:
     spawnPointIndex: 1
   - entity: {fileID: 11400000, guid: 8b81fac2fcc736b459c96dfe58c6ef46, type: 2}
     spawnTime: 9
-    spawnPointIndex: 0
+    spawnPointIndex: 2
+  - entity: {fileID: 11400000, guid: 8b81fac2fcc736b459c96dfe58c6ef46, type: 2}
+    spawnTime: 7
+    spawnPointIndex: 3

@@ -17,4 +17,4 @@ MonoBehaviour:
   effectValue: 1
   type: 
   prefab: {fileID: 977894715073093688, guid: 24ae6108f31ec554eb318be6486c6177, type: 3}
-  dropRate: 0.61
+  dropRate: 0.25

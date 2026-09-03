@@ -17,4 +17,4 @@ MonoBehaviour:
   effectValue: 2
   type: 
   prefab: {fileID: 919132149155446097, guid: 34222568e5f1fbe4799b30e8101bb6ee, type: 3}
-  dropRate: 0.9
+  dropRate: 0.1

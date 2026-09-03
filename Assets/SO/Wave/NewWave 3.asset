@@ -15,8 +15,8 @@ MonoBehaviour:
   waveName: 3
   waveList:
   - entity: {fileID: 11400000, guid: fe63a20cb6e84364d91e53ce07f0cd69, type: 2}
-    spawnTime: 2
-    spawnPointIndex: 0
+    spawnTime: 1
+    spawnPointIndex: 4
   - entity: {fileID: 11400000, guid: 8b81fac2fcc736b459c96dfe58c6ef46, type: 2}
     spawnTime: 3
-    spawnPointIndex: 1
+    spawnPointIndex: 4

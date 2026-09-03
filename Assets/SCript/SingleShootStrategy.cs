@@ -32,6 +32,8 @@ public class SingleShootStrategy : IShootStrategy
         data.prefab = bulletPrefab;
         data.speed = bulletSpeed;
         data.position = spawnPosition;
+        data.id = 1;
+
         WeaponEvent.EmitSpawnBullet(data);
     }
 }
@@ -57,7 +59,8 @@ public class TripleSpreadShootStrategy : IShootStrategy
                 position = spawnPosition,
                 speed = bulletSpeed,
                 rotation = bulletRotation,
-                damage = damagePerBullet
+                damage = damagePerBullet,
+                id = 2
             };
 
             // 3. Bắn event sinh đạn

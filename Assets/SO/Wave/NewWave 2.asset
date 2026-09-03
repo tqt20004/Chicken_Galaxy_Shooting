@@ -16,13 +16,13 @@ MonoBehaviour:
   waveList:
   - entity: {fileID: 11400000, guid: 0ae8010c9388de2409d53fef2523a81b, type: 2}
     spawnTime: 1
-    spawnPointIndex: 0
+    spawnPointIndex: 5
   - entity: {fileID: 11400000, guid: 8b81fac2fcc736b459c96dfe58c6ef46, type: 2}
     spawnTime: 3
-    spawnPointIndex: 1
+    spawnPointIndex: 6
   - entity: {fileID: 11400000, guid: fe63a20cb6e84364d91e53ce07f0cd69, type: 2}
     spawnTime: 7
-    spawnPointIndex: 0
+    spawnPointIndex: 7
   - entity: {fileID: 11400000, guid: fe63a20cb6e84364d91e53ce07f0cd69, type: 2}
     spawnTime: 15
-    spawnPointIndex: 0
+    spawnPointIndex: 4
